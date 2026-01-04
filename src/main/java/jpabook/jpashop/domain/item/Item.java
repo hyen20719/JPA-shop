@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
+@Getter @Setter
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn
 public abstract class Item {
@@ -26,7 +26,7 @@ public abstract class Item {
     @ManyToMany(mappedBy = "items")
     private List<Category> categories = new ArrayList<>();
 
-    //== 비즈니스 로직(엔티티 안에 비즈니스로직 넣는게 객체지향적으로 좋음==//
+    //== 비즈니스 로직(엔티티 안에 비즈니스로직 넣는게 객체지향적으로 좋음=> 도메인모델패턴)==//
 
     /**
      * stock 증가
